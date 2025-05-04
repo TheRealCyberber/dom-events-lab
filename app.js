@@ -4,6 +4,7 @@
 
 let firstValue = null;
 let secondValue = null;
+let operation = null;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -80,9 +81,13 @@ const clear = () => {
 
 numbers.forEach((number) => {
     number.addEventListener('click', (event) => {
-      totalDisplay.innerText = totalDisplay.innerText;
+        if (totalDisplay.innerText === '0') {
+            totalDisplay.innerText = event.target.innerText;
+          } else {
+            totalDisplay.innerText += event.target.innerText;
+          }
+        });
     });
-  });
 
 operationButtons.forEach((operation) => {
     operation.addEventListener('click', handleOperatorBtn);
